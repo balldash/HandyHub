@@ -3,54 +3,232 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About HandyHub</title>
+  <title>HandyHub</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
+      line-height: 1.6;
       background-color: #f4f4f4;
     }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      background-color: white;
+
+    /* Header styles */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       padding: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background-color: #333;
+      color: white;
     }
-    h1 {
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 1.2em;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Cover section */
+    .cover {
+      background-image: url('handyhub_banner.jpg'); /* Replace with your cover image URL */
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
       text-align: center;
+    }
+
+    .cover h1 {
+      font-size: 4em;
+      margin-bottom: 20px;
+    }
+
+    .cover p {
+      font-size: 1.5em;
+      margin-bottom: 30px;
+    }
+
+    .cover button {
+      padding: 15px 30px;
+      font-size: 1.2em;
+      color: white;
+      background-color: #28a745;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .cover button:hover {
+      background-color: #218838;
+    }
+
+    /* Section styles */
+    section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    #about, #features, #key-features {
+      background-color: white;
       color: #333;
     }
-    p {
-      line-height: 1.6;
-      color: #555;
+
+    #about h2, #features h2, #key-features h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    #about p, #features p, #key-features p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    /* Key Features Section */
+    .features-grid {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    .feature {
+      width: 300px;
+      margin: 20px;
+      text-align: center;
+    }
+
+    .feature img, .feature video {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .feature h3 {
+      margin: 15px 0 10px;
+    }
+
+    /* About Section */
+    .about-container {
+      max-width: 800px;
+      margin: auto;
+      text-align: left;
+    }
+
+    .about-container h2 {
+      text-align: center;
+    }
+
+    .social-links {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 1.5em;
+    }
+
+    .social-links a:hover {
+      text-decoration: underline;
+    }
+
+    .github-link {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .github-link a {
+      font-size: 1.2em;
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .github-link a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>About HandyHub</h1>
-    <p><strong>HandyHub</strong> is a community-driven platform designed to connect clients with skilled tradesmen in their local area. Our goal is to provide an easy-to-use directory where users can quickly find trusted professionals for various services such as plumbing, carpentry, electrical work, and more.</p>
-    
-    <h2>Project Vision</h2>
-    <p>Our vision is to empower local service providers by giving them a digital space to showcase their skills, while making it easier for people to find reliable tradesmen without relying on traditional advertising methods such as flyers or street posts.</p>
-    
-    <h2>Key Features</h2>
-    <ul>
-      <li>Searchable directory of tradesmen by location and specialization.</li>
-      <li>Profiles for tradesmen including name, email, location, and skills.</li>
-      <li>User-friendly mobile-first design for easy access on any device.</li>
-    </ul>
+  <!-- Header with Navigation -->
+  <header>
+    <h1>HandyHub</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#key-features">Features</a>
+    </nav>
+  </header>
 
-    <h2>Team Members</h2>
-    <p>HandyHub is developed by a dedicated solo engineer passionate about using technology to improve the community. The project is part of a larger school assignment, which emphasizes backend development and practical problem-solving.</p>
-
-    <h2>Timeline</h2>
-    <p>The project started in mid-2024 and is progressing steadily, with features like user directories, filtering, and design layouts currently under development.</p>
-    
-    <h2>Contact Us</h2>
-    <p>If you have any questions or feedback, feel free to reach out at <a href="mailto:contact@handyhub.com">contact@handyhub.com</a>.</p>
+  <!-- Cover Section -->
+  <div class="cover">
+    <div>
+      <h1>HandyHub</h1>
+      <p>Connecting you with trusted local tradesmen.</p>
+      <button onclick="location.href='https://your-deployed-project-url.com'">Try HandyHub</button>
+    </div>
   </div>
+
+  <!-- Key Features Section -->
+  <section id="key-features">
+    <h2>Key Features</h2>
+    <div class="features-grid">
+      <div class="feature">
+        <img src="feature1-image.jpg" alt="Feature 1"> <!-- Replace with actual image URL -->
+        <h3>Search Directory</h3>
+        <p>Quickly find tradesmen in your area by searching the comprehensive directory based on location and skill set.</p>
+      </div>
+
+      <div class="feature">
+        <video src="feature2-video.mp4" controls></video> <!-- Replace with actual video URL -->
+        <h3>Tradesmen Profiles</h3>
+        <p>Access detailed profiles of tradesmen, including ratings, reviews, and specialization.</p>
+      </div>
+
+      <div class="feature">
+        <img src="feature3-image.jpg" alt="Feature 3"> <!-- Replace with actual image URL -->
+        <h3>Easy Booking</h3>
+        <p>Seamlessly book services with your chosen tradesmen, with options for scheduling and payment integration.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="about-container">
+      <h2>About HandyHub</h2>
+      <p>HandyHub was inspired by the need to improve the way local tradesmen advertise their services in my community. Growing up, I saw many service providers relying on flyers and street posts, which were often ineffective. I wanted to create a platform that empowers tradesmen and makes it easier for clients to find skilled professionals. This project also gave me the opportunity to use my engineering skills to contribute to my community.</p>
+
+      <p>HandyHub is also my Portfolio Project for Holberton School, where I am learning full-stack development. The project has evolved from a simple idea to a full-featured application aimed at solving real-world problems. You can follow its progress and see the full codebase on GitHub.</p>
+
+      <p><strong>Timeline:</strong> The project started in mid-2024 and is continuously evolving with new features and improvements.</p>
+
+      <!-- Social Links -->
+      <div class="social-links">
+        <p>Connect with me:</p>
+        <a href="https://www.linkedin.com/in/your-profile" target="_blank">LinkedIn</a> |
+        <a href="https://github.com/your-profile" target="_blank">GitHub</a> |
+        <a href="https://twitter.com/your-profile" target="_blank">Twitter</a>
+      </div>
+
+      <!-- GitHub Repository -->
+      <div class="github-link">
+        <p><a href="https://github.com/your-repo-url" target="_blank">Check out the project repository on GitHub</a></p>
+      </div>
+    </div>
+  </section>
 </body>
 </html>
