@@ -11,22 +11,42 @@ clients_bp = Blueprint('clients', __name__)
 @clients_bp.route('/clients', methods=['GET'])
 @jwt_required()
 def get_clients():
-    clients = Client.query.all()
-    return jsonify({
-        "message": "List of all clients",
-        "data": [c.to_dict() for c in clients]
-    }), 200
+    try:
+        clients = Client.query.all()
+
+        if not clients:
+            return jsonify({
+                "message": "No clients found.",
+                "data": []
+            }), 200
+
+        return jsonify({
+            "message": "List of all clients retrieved successfully.",
+            "data": [c.to_dict() for c in clients]
+        }), 200
+
+    except Exception as e:
+        return jsonify({
+            "error": f"An error occurred while fetching clients: {str(e)}"
+        }), 500
 
 
 # GET: Retrieve a single client by id
 @clients_bp.route('/clients/<int:id>', methods=['GET'])
 @jwt_required()
 def get_client(id):
-    client = Client.query.get_or_404(id)
-    return jsonify({
-        "message": "Client found",
-        "data": client.to_dict()
-    }), 200
+    try:
+        client = Client.query.get_or_404(id)
+
+        return jsonify({
+            "message": "Client found.",
+            "data": client.to_dict()
+        }), 200
+
+    except Exception as e:
+        return jsonify({
+            "error": f"An error occurred while retrieving the client: {str(e)}"
+        }), 500
 
 
 # POST: Create a new client
