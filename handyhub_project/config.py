@@ -1,7 +1,12 @@
+from datetime import timedelta
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 class Config:
-    postUrl = 'postgresql://postgres:tobi@localhost/handyhub_db'
-    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL', postUrl)
+    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL')
+    SECRET_KEY = os.getenv('SECRET_KEY')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    JWT_ACCESS_TOKEN_EXPIRES = timedelta(hours=1)
