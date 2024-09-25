@@ -11,22 +11,42 @@ tradesmen_bp = Blueprint('tradesmen', __name__)
 @tradesmen_bp.route('/tradesmen', methods=['GET'])
 @jwt_required()
 def get_tradesmen():
-    tradesmen = Tradesman.query.all()
-    return jsonify({
-        "message": "List of all tradesmen",
-        "data": [t.to_dict() for t in tradesmen]
-    }), 200
+    try:
+        tradesmen = Tradesman.query.all()
+
+        if not tradesmen:
+            return jsonify({
+                "message": "No tradesmen found.",
+                "data": []
+            }), 200
+
+        return jsonify({
+            "message": "List of all tradesmen retrieved successfully.",
+            "data": [t.to_dict() for t in tradesmen]
+        }), 200
+
+    except Exception as e:
+        return jsonify({
+            "error": f"An error occurred while fetching tradesmen: {str(e)}"
+        }), 500
 
 
-# GET a single tradesman by id
+# GET: Retrieve a single tradesman by id
 @tradesmen_bp.route('/tradesmen/<int:id>', methods=['GET'])
 @jwt_required()
 def get_tradesman(id):
-    tradesman = Tradesman.query.get_or_404(id)
-    return jsonify({
-        "message": "Tradesman found",
-        "data": tradesman.to_dict()
-    }), 200
+    try:
+        tradesman = Tradesman.query.get_or_404(id)
+
+        return jsonify({
+            "message": "Tradesman found.",
+            "data": tradesman.to_dict()
+        }), 200
+
+    except Exception as e:
+        return jsonify({
+            "error": f"An error occurred while fetching: {str(e)}"
+        }), 500
 
 
 # POST: Create a new tradesman
